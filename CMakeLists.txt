@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.4)
+project(ionetserver)
+find_package( Threads )
+add_executable(ionetserver usuarios.cpp iosvrmain.cpp ../iolib/ioconfigurador.cpp ../iolib/IOCoreFuncs.cpp ../iolib/IOLogger.cpp)
+target_link_libraries(ionetserver ${CMAKE_THREAD_LIBS_INIT} mysqlcppconn ssl crypto)
+install(TARGETS ionetserver RUNTIME DESTINATION bin)
